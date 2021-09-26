@@ -1,0 +1,8 @@
+.menu {
+	/* display: flex; */
+}
+.logo {
+	float: left;
+	width: 64px;
+	height: 64px;
+}

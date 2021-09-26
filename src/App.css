@@ -1,0 +1,15 @@
+.ant-menu {
+	justify-content: end;
+}
+
+.intrests__row {
+	border: 1px solid pink;
+}
+
+.intrests__item {
+	border: 1px solid black;
+	padding: 24px;
+}
+.intrests__item h2 {
+	text-align: center;
+}
