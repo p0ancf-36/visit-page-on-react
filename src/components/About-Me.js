@@ -1,17 +1,19 @@
 import React from 'react';
-
-import { Layout, Menu } from 'antd';
 import { Row, Col } from 'antd';
 
 import info from '../info';
 
-const intrests = info.intrests;
+const about = info.about;
+const foto = require(`../img/${about.foto_name}`).default;
 
-const AboutMe = () => (
+const AboutMe = (props) => (
 	<>
-		<Row>
-			<Col span={8}></Col>
-			<Col span={16}></Col>
+		<Row className={"about " + props.className}>
+			<Col span={8} className="about__foto"><img src={foto} alt="Фото" /></Col>
+			<Col span={16} className="about__text">
+				<h2 className="about__title divider-h">{about.title}</h2>
+				<div className="about__subtitle">{about.subtitle}</div>
+			</Col>
 		</Row>
 	</>
 );
