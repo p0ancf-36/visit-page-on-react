@@ -1,0 +1,28 @@
+.about {
+   padding: 50px;
+   margin-bottom: 40px;
+
+   &__foto {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      img {
+         width: 70%;
+      }
+   }
+
+   &__text {
+      padding: 20px;
+   }
+   &__title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+   }
+   &__subtitle {
+      font-size: 1.5rem;
+   }
+}
