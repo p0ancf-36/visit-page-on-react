@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Menu } from 'antd';
 
-import info from '../info';
+import info from '../scripts/info';
 const menu = info.menu;
 const logo = require(`../img/${menu.logo_name}`).default;
 
