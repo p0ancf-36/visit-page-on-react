@@ -8,7 +8,7 @@ import info from '../scripts/info';
 const intrests = info.intrests;
 
 const Intrests = () => (
-	<Row className="intrests" gutter={[10, 10]}>
+	<Row className="intrests" gutter={[0, 10]}>
 		<Col span="24" className="intrests__title">Мои интересы</Col>
 		{
 			new Array(info.intrests.rows.length)
@@ -17,7 +17,6 @@ const Intrests = () => (
 					<Col span={24} key={index}>
 						<Row
 							className="intrests__row row"
-							gutter={[10, 10]}
 							key={index}>
 							{
 								new Array(info.intrests.rows[index].length)
