@@ -1,15 +1,15 @@
 .about {
-   padding: 50px;
+   // padding: 50px;
    margin-bottom: 40px;
 
    &__foto {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
+      position: relative;
       img {
+         position: absolute;
+         left: 50%;
+         top: 50%;
+         transform: translate(-50%, -50%);
+
          width: 70%;
       }
    }

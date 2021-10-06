@@ -2,11 +2,9 @@ import React from 'react';
 
 import { Menu } from 'antd';
 
-import info from '../scripts/info';
-const menu = info.menu;
+import data from '../scripts/data';
+const menu = data.menu;
 const logo = require(`../img/${menu.logo_name}`).default;
-
-// console.log(process.env.PUBLIC_URL + "img/" + menu.logo_name);
 
 const AppHeader = () => (
 	<>
@@ -20,7 +18,13 @@ const AppHeader = () => (
 			{
 				new Array(menu.elements.length)
 					.fill(null)
-					.map((value, index) => (<Menu.Item key={index}>{menu.elements[index]}</Menu.Item>))
+					.map((value, index) => (
+						<Menu.Item key={index}>
+							<a href={menu.elements[index].url}>
+								{menu.elements[index].text}
+							</a>
+						</Menu.Item>
+					))
 			}
 		</Menu>
 	</>

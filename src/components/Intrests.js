@@ -1,43 +1,47 @@
 import React from 'react';
+import { ElementArray } from '../scripts/utilities';
+import { withSubscription } from '../scripts/scrollEvent';
+import data from '../scripts/data';
 
-import { Layout, Menu } from 'antd';
-import { Row, Col } from 'antd';
-
-import info from '../scripts/info';
-
-const intrests = info.intrests;
+const intrests = data.intrests;
 
 const Intrests = () => (
-	<Row className="intrests" gutter={[0, 10]}>
-		<Col span="24" className="intrests__title">Мои интересы</Col>
+	<div className="intrests">
+		<h2 className="intrests__title">Мои интересы</h2>
 		{
-			new Array(info.intrests.rows.length)
-				.fill(null)
-				.map((_, index) => (
-					<Col span={24} key={index}>
-						<Row
-							className="intrests__row row"
-							key={index}>
-							{
-								new Array(info.intrests.rows[index].length)
-									.fill(null)
-									.map((_, jndex) => (
-										<Col
-											span={24 / info.intrests.rows[index].length}
-											key={index * info.intrests.rows.length + jndex}
-											className="">
-											<div className="intrests__item">
-												<h2 className="intrests__item-title">{intrests.rows[index][jndex].title}</h2>
-												<div className="intrests__item-content">{intrests.rows[index][jndex].content}</div>
-											</div>
-										</Col>
-									))
-							}
-						</Row>
-					</Col>
-				))
+			ElementArray(intrests.elements.length, index => <IntrestsItem index={index} key={index} />)
 		}
-	</Row>
+	</div>
 );
+
+const IntrestsItem = ({ index }) => {
+	const margin = 0;
+	const className = "_active";
+
+	function callback(DOMnode) {
+		const rect = DOMnode.current.getBoundingClientRect();
+		if (
+			rect.bottom - margin >= 0 &&
+			rect.top + margin <= window.innerHeight
+		) {
+			DOMnode.current.classList.add(className);
+		} else {
+			DOMnode.current.classList.remove(className);
+		}
+	}
+
+	const item = React.forwardRef((props, ref) => (
+		<div
+			{...props}
+			ref={ref}
+			className="intrests__item">
+			<h2 className="intrests__item-title">{intrests.elements[index].title}</h2>
+			<div className="intrests__item-content">{intrests.elements[index].content}</div>
+		</div>
+	))
+	const SubscribedItem = withSubscription(item, callback);
+
+	return <SubscribedItem />;
+}
 
 export default Intrests;

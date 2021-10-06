@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Layout } from 'antd';
 
-import AppHeader from './App-Header'
-import AppContent from './App-Content'
+import AppHeader from './App-Header';
+import AppContent from './App-Content';
+import { ElementArray } from '../scripts/utilities';
+import data from '../scripts/data';
 
 const { Header, Content, Footer } = Layout;
 
@@ -17,7 +19,7 @@ function App() {
         <AppContent />
       </Content>
       <Footer>
-
+        {/* {ElementArray(50, () => <br />)} */}
       </Footer>
     </Layout>
   );

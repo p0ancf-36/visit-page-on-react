@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
-import info from '../scripts/info';
+import data from '../scripts/data';
 
-const about = info.about;
+const about = data.about;
 const foto = require(`../img/${about.foto_name}`).default;
 
 const AboutMe = (props) => (

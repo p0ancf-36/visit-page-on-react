@@ -1,12 +1,9 @@
 @import "antd_null_style";
 @import "null_style";
+@import "utilities";
 
 @import "index";
-@import "App";
 
-@import "Header";
-@import "Content";
-   @import "About-Me";
-   @import "Intrests";
-   @import "Projects";
-@import "Projects";
+@import "header";
+@import "content";
+@import "footer";
