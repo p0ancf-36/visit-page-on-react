@@ -5,11 +5,11 @@ import Intrests from './Intrests';
 import Projects from './Projects';
 
 const AppContent = () => (
-	<div className="container">
-		<AboutMe className="divider-h" />
+	<>
+		<AboutMe />
 		<Intrests />
 		<Projects />
-	</div>
+	</>
 );
 
 export default AppContent;

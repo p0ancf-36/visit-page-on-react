@@ -1,25 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { Layout } from 'antd';
 
 import AppHeader from './App-Header';
 import AppContent from './App-Content';
-import { ElementArray } from '../scripts/utilities';
-import data from '../scripts/data';
+import AppFooter from './App-Footer';
 
 const { Header, Content, Footer } = Layout;
 
 function App() {
   return (
     <Layout>
-      <Header className="divider-h">
+      <Header className="divider-h header">
         <AppHeader />
       </Header>
-      <Content className="divider-h">
+      <Content className="divider-h content">
         <AppContent />
       </Content>
       <Footer>
-        {/* {ElementArray(50, () => <br />)} */}
+        <AppFooter />
       </Footer>
     </Layout>
   );
