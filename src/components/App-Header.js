@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { ElementArray } from '../scripts/utilities';
+import headerData from '../scripts/data/header-data';
+import AnchorLink from './utils/AnchorLink';
 import { Menu } from 'antd';
 
-import { ElementArray } from '../scripts/utilities';
-import data from '../scripts/data';
+const logo = require(`../img/${headerData.logoName}`).default;
 
-const menu = data.menu;
-const logo = require(`../img/${menu.logo_name}`).default;
-
-const AppHeader = () => {
+const AppHeader = ({ className = "", margin = 0 }) => {
 	return (
 		<>
 			<div className="header__logo logo">
@@ -16,31 +15,19 @@ const AppHeader = () => {
 					p0ancf-36
 				</h1>
 			</div>
-			<Menu mode="horizontal" className="header__menu menu" selectable={false} activeKey={[]}>
-				{
-					ElementArray(menu.elements.length, i => <MenuItem key={i} index={i} href={menu.elements[i].url} />)
-				}
+			<Menu mode="horizontal" activeKey="" selectable={false} selectedKeys={[]} className="header__menu menu">
+				{ElementArray(headerData.menuItems.length, i => <MenuItem key={i} index={i} margin={margin} href={headerData.menuItems[i].href} />)}
 			</Menu>
 		</>
 	)
 };
 
-const MenuItem = ({ index = 0, href }) => {
-	const [anchor, setAnchor] = useState(null);
-
-	useEffect(() => {
-		setAnchor(document.querySelector(href));
-	}, [anchor, href])
-
-	function handleClick() {
-		anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
-	}
-
+const MenuItem = ({ index = 0, margin = 0, href }) => {
 	return (
-		<Menu.Item onClick={handleClick}>
-			<button className="menu-item">
-				{menu.elements[index].text}
-			</button>
+		<Menu.Item className="menu__item">
+			<AnchorLink anchorQuery={href} className="menu__item-link" margin={margin}>
+				{headerData.menuItems[index].name}
+			</AnchorLink>
 		</Menu.Item>
 	)
 }

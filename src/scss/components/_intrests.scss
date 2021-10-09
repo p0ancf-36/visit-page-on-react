@@ -1,0 +1,54 @@
+.intrests {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   &__title {
+   }
+   &__list {
+      text-align: center;
+      overflow-x: hidden;
+      @include media-min(md) {
+         display: flex;
+         flex-direction: column;
+      }
+   }
+   &__item {
+      transition: all cubic-bezier(0, 0.5, 0.5, 1) 2s;
+      margin: 20px auto;
+      padding: 10px;
+      border: $border-style;
+      min-width: 60%;
+      max-width: 1320px;
+
+      @include media-min(md) {
+         position: relative;
+         margin: 20px 0;
+         &.left {
+            align-self: flex-start;
+            text-align: right;
+            left: 0%;
+            &._active {
+               left: 10%;
+            }
+         }
+         &.right {
+            align-self: flex-end;
+            text-align: left;
+            right: 0%;
+            &._active {
+               right: 10%;
+            }
+         }
+      }
+      &-title {
+         padding: 0 20px;
+         font-size: 2rem;
+      }
+      &-content {
+         font-size: 1.5rem;
+      }
+   }
+   .arrow {
+      margin-bottom: 64px;
+   }
+}

@@ -1,12 +1,14 @@
-@import "about-me";
-@import "intrests";
-@import "projects";
+@import "./components/about-me";
+@import "./components/intrests";
+@import "./components/projects";
 
-.content-element {
-   margin-top: 40px;
-   min-height: 100vh;
+.ant-layout-content {
+   > * {
+      margin-top: 40px;
+      min-height: 100vh;
+   }
 
-   :first-child {
+   > :first-child {
       margin-top: 0;
    }
 }

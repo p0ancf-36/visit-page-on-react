@@ -6,10 +6,32 @@ body,
 }
 
 .container {
-   margin: auto;
+   margin-left: auto;
+   margin-right: auto;
 
    @media (max-width: 576px) {
-      width: 100%;
+      width: calc(100% - 30px);
+   }
+   @media (min-width: 576px) {
+      max-width: 540px;
+   }
+   @media (min-width: 768px) {
+      max-width: 720px;
+   }
+   @media (min-width: 992px) {
+      max-width: 960px;
+   }
+   @media (min-width: 1200px) {
+      max-width: 1140px;
+   }
+   @media (min-width: 1400px) {
+      max-width: 1320px;
+   }
+}
+
+@mixin UseContainer {
+   @media (max-width: 576px) {
+      width: calc(100% - 30px);
    }
    @media (min-width: 576px) {
       max-width: 540px;

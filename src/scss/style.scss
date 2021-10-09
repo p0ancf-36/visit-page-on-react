@@ -1,9 +1,11 @@
 @import "antd_null_style";
 @import "null_style";
+@import "./utils/media";
+@import "./utils/global";
 @import "utilities";
 
 @import "index";
 
-@import "header";
+@import "./components/header";
 @import "content";
 @import "footer";

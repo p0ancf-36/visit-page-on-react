@@ -4,7 +4,7 @@ import AboutMe from './About-Me';
 import Intrests from './Intrests';
 import Projects from './Projects';
 
-const AppContent = () => (
+const AppContent = ({ ...other }) => (
 	<>
 		<AboutMe />
 		<Intrests />

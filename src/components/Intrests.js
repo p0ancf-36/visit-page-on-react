@@ -1,23 +1,30 @@
 import React from 'react';
 import { ElementArray } from '../scripts/utilities';
 import { subscribeToVeiwportChange } from '../scripts/scrollEvent';
-import { animateScroll } from '../scripts/utilities';
-import data from '../scripts/data';
 
-const intrests = data.intrests;
+import data from "../scripts/data";
+import intrestsData from '../scripts/data/intrests-data';
+import AnchorLink from './utils/AnchorLink';
 
 const Intrests = () => {
-	function scroll_() {
-		animateScroll({ targetPosition: window.innerHeight - 20, initialPosition: window.scrollY, duration: 1000 });
-	}
-
 	return (
-		<section className="intrests content-element" id="intrests">
-			<h2 className="intrests__title">Мои интересы</h2>
-			{
-				ElementArray(intrests.elements.length, index => <IntrestsItem index={index} key={index} className={index & 1 ? "left" : "right"} />)
-			}
-			<div className="arrow" onClick={scroll_}><div><span></span></div></div>
+		<section className="intrests divider-h" id="intrests">
+			<div>
+				<h2 className="intrests__title title">Мои интересы</h2>
+				<ul className="intrests__list">
+					{
+						ElementArray(
+							intrestsData.intrests.length,
+							index => <IntrestsItem
+								index={index}
+								key={index}
+								className={index & 1 ? "left" : "right"}
+							/>
+						)
+					}
+				</ul>
+			</div>
+			<AnchorLink className="arrow" anchorQuery="#projects" margin={data.margin}><div><span></span></div></AnchorLink>
 		</section>
 	)
 };
@@ -39,13 +46,13 @@ const IntrestsItem = ({ index, className, ...other }) => {
 	}
 
 	const item = React.forwardRef((props, ref) => (
-		<div
+		<li
 			{...props}
 			ref={ref}
 			className={"intrests__item " + className}>
-			<h2 className="intrests__item-title">{intrests.elements[index].title}</h2>
-			<div className="intrests__item-content">{intrests.elements[index].content}</div>
-		</div>
+			<h2 className="intrests__item-title">{intrestsData.intrests[index].title}</h2>
+			<div className="intrests__item-content">{intrestsData.intrests[index].decs}</div>
+		</li>
 	))
 	const SubscribedItem = subscribeToVeiwportChange(item, callback);
 

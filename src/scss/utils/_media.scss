@@ -1,0 +1,33 @@
+@use "scss:map";
+
+$brkpt: (
+   xs: 480px,
+   sm: 576px,
+   md: 768px,
+   lg: 992px,
+   xl: 1200px,
+   xxl: 1600px,
+);
+
+@mixin media-min($size) {
+   @if map-has-key($brkpt, $size) {
+      @media (min-width: map-get($map: $brkpt, $key: $size)) {
+         @content;
+      }
+   } @else {
+      @media (min-width: $size) {
+         @content;
+      }
+   }
+}
+@mixin media-max($size) {
+   @if map-has-key($brkpt, $size) {
+      @media (max-width: map-get($map: $brkpt, $key: $size)) {
+         @content;
+      }
+   } @else {
+      @media (max-width: $size) {
+         @content;
+      }
+   }
+}

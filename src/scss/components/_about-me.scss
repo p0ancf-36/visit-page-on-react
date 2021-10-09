@@ -1,0 +1,46 @@
+.about {
+   padding-top: 128px;
+   @include media-min(md) {
+      padding-top: 64px;
+   }
+   background-size: cover;
+   background-attachment: fixed;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+
+   article {
+      margin-top: 20px;
+      border-radius: 20px;
+      background-color: rgba(#fff, 0.85);
+   }
+   &__title {
+      text-align: center;
+   }
+   &__row {
+      @include media-min(md) {
+         display: flex;
+      }
+   }
+   &__foto {
+      flex: 0 0 33.33%;
+      img {
+         padding: 30px;
+         width: 100%;
+
+         @include media-min(md) {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+         }
+      }
+   }
+   &__text {
+      flex: 0 0 66.67%;
+   }
+   &__subtitle {
+      padding: 30px;
+      font-size: 1.5rem;
+   }
+}

@@ -1,32 +1,27 @@
 import React from 'react';
-import { Row, Col } from 'antd';
 
-import data from '../scripts/data';
-import { animateScroll } from "../scripts/utilities";
+import data from "../scripts/data";
+import aboutMeData from '../scripts/data/about-me-data';
+import AnchorLink from './utils/AnchorLink';
 
-const about = data.about;
-const foto = require(`../img/${about.foto_name}`).default;
-const bg = require(`../img/${about.bgimg_name}`).default;
+const foto = require(`../img/${aboutMeData.fotoName}`).default;
+const bg = require(`../img/${aboutMeData.bgUrl}`).default;
 
 const AboutMe = () => {
-	function scroll_() {
-		animateScroll({ targetPosition: window.innerHeight - 20, initialPosition: window.scrollY, duration: 1000 });
-	}
-
 	return (
-		<section className="about content-element" style={{ backgroundImage: `url(${bg})` }} id="about">
+		<section className="about" style={{ backgroundImage: `url(${bg})` }} id="about">
 			<div className="container">
 				<article>
-					<h2 className="about__title">{about.title}</h2>
-					<Row className="about__row">
-						<Col span={8} className="about__foto"><img src={foto} alt="Фото" /></Col>
-						<Col span={16} className="about__text">
-							<div className="about__subtitle">{about.subtitle}</div>
-						</Col>
-					</Row>
+					<h2 className="about__title title">{aboutMeData.name}</h2>
+					<div className="about__row">
+						<div className="about__foto"><img src={foto} alt="Фото" /></div>
+						<div className="about__text">
+							<div className="about__subtitle">{aboutMeData.desc}</div>
+						</div>
+					</div>
 				</article>
-				<div className="arrow" onClick={scroll_}><div><span></span></div></div>
 			</div>
+			<AnchorLink className="arrow" anchorQuery="#intrests" margin={data.margin}><div><span></span></div></AnchorLink>
 		</section>
 	)
 }

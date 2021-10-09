@@ -41,7 +41,9 @@
    $size: 50px;
 
    $border: 2px solid white;
-   > ::after, > ::before, span {
+   > ::after,
+   > ::before,
+   span {
       animation: arrow $animTime infinite;
       transform: rotate(45deg) translateX(-50%);
       display: block;
@@ -55,7 +57,8 @@
          bottom: $border;
       }
    }
-   > :after, > :before {
+   > :after,
+   > :before {
       content: "";
    }
    > ::before {
@@ -70,6 +73,12 @@
 }
 
 @keyframes arrow {
-   0%, 80%, 100% {opacity:0}
-   40% {opacity:1}
+   0%,
+   80%,
+   100% {
+      opacity: 0;
+   }
+   40% {
+      opacity: 1;
+   }
 }
