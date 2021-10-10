@@ -11,7 +11,6 @@ const AnchorLink = ({ className = "", anchorQuery, margin = 0, onClick = () => {
    function clickHandler() {
       onClick();
       scrollTo({ ref: anchor }, margin);
-      console.log(margin);
    }
 
    return (

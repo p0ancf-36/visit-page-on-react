@@ -6,10 +6,10 @@ export function subscribeToVeiwportChange(WrappedComponent, callback) {
 
       useEffect(() => {
          document.addEventListener('scroll', scrollHandler)
-         document.addEventListener('resize', scrollHandler)
+         window.addEventListener('resize', scrollHandler)
          return () => {
             document.removeEventListener('scroll', scrollHandler)
-            document.removeEventListener('resize', scrollHandler)
+            window.removeEventListener('resize', scrollHandler)
          }
       }, [])
 
