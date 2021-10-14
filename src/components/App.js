@@ -13,7 +13,6 @@ function App() {
     } else {
       data.margin = 128;
     }
-    console.log(data.margin);
   }
   useEffect(() => {
     window.addEventListener('resize', resizeHandler)

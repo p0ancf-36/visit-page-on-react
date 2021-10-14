@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid } from "antd";
 import { ElementArray } from '../scripts/utilities';
 import { subscribeToVeiwportChange } from '../scripts/scrollEvent';
 
@@ -6,7 +7,10 @@ import data from "../scripts/data";
 import intrestsData from '../scripts/data/intrests-data';
 import AnchorLink from './utils/AnchorLink';
 
+const { useBreakpoint } = Grid;
+
 const Intrests = () => {
+	const breakpoints = useBreakpoint();
 	return (
 		<section className="intrests divider-h" id="intrests">
 			<div>
@@ -24,7 +28,7 @@ const Intrests = () => {
 					}
 				</ul>
 			</div>
-			<AnchorLink className="arrow" anchorQuery="#projects" margin={data.margin}><div><span></span></div></AnchorLink>
+			{breakpoints.lg && <AnchorLink className="arrow" anchorQuery="#intrests" margin={data.margin}><div><span></span></div></AnchorLink>}
 		</section>
 	)
 };
@@ -34,6 +38,7 @@ const IntrestsItem = ({ index, className, ...other }) => {
 	const toggleClassName = "_active";
 
 	function callback(DOMnode) {
+		if (DOMnode.current === null) return;
 		const rect = DOMnode.current.getBoundingClientRect();
 		if (
 			rect.bottom - margin >= 0 &&
